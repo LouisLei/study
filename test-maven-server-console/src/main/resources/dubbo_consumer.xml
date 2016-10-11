@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans          
+    http://www.springframework.org/schema/beans/spring-beans.xsd   
+    http://code.alibabatech.com/schema/dubbo      
+    http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<dubbo:application name="dubbo_consumer"/>
+	<!-- 使用zookeeper注册中心暴露服务地址 -->
+	<dubbo:registry address="zookeeper://10.7.34.146:2181" check="false" id="registry"></dubbo:registry>
+	
+	<dubbo:reference interface="com.lakala.work.SpringDubboTest.TestRegistryService" id="testRegistryService" registry="registry"></dubbo:reference>
+	<bean id="indexController" class="com.lakala.work.test_maven_server_console.IndexController" >
+		<property name="testRegistryService" ref="testRegistryService"></property>
+	</bean>
+	
+
+</beans>
