@@ -1,2 +1,2 @@
 # study
-分别为dubbox与dubbo的学习项目源码
+都是自己学习的代码
