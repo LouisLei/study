@@ -2,7 +2,7 @@ package com.lakala.work.DataConstruct;
 
 import org.junit.Test;
 
-import com.lakala.work.DataConstruct.link.LinkDemo;
+import com.lakala.work.DataConstruct.single.link.LinkDemo;
 
 public class LinkDemoTest {
 	
