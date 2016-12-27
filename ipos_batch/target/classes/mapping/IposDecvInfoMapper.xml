@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lakala.ipos.batch.dao.IposDecvInfoMapper">
+	<resultMap id="BaseResultMap" type="com.lakala.ipos.batch.domain.IposDecvInfo">
+		<result column="d.sn" property="sn" jdbcType="VARCHAR" />
+		<result column="app" property="app" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="selectNewRecordByTime" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select d.sn,app from iposdata.ipos_devinfo_data d,(select sn,
+		max(time_stamp) time_stamp from iposdata.ipos_devinfo_data group by
+		sn) s
+		where d.sn=s.sn and d.time_stamp=s.time_stamp
+	</select>
+</mapper>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" name="ipos-report" packages="">
+  <properties>
+  	<property name="LOG_HOME">/opt/applogs/${web:contextPath}</property>
+  	<property name="LOG_FILE_NAME">ipos-report</property>
+  </properties>
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+    </Console>
+    
+    <RollingFile name="infoLevelRollingFile" 
+    	fileName="${LOG_HOME}/${LOG_FILE_NAME}.log" filePattern="${LOG_HOME}/${LOG_FILE_NAME}-logs/$${date:yyyy-MM}/${LOG_FILE_NAME}-%d{MM-dd-yyyy}-%i.log.gz">
+    	<PatternLayout pattern="%d{yyyy-MM-dd 'at' HH:mm:ss z} %-5level %class{36} %L %M - %msg%xEx%n"/>
+        <Policies>
+        	<SizeBasedTriggeringPolicy size="500MB"/>
+        	<TimeBasedTriggeringPolicy />
+        </Policies>
+    </RollingFile>
+    
+    <RollingFile name="errorLevelRollingFile" 
+    	fileName="${LOG_HOME}/${LOG_FILE_NAME}-error.log" filePattern="${LOG_HOME}/${LOG_FILE_NAME}-error-logs/$${date:yyyy-MM}/${LOG_FILE_NAME}-error-%d{MM-dd-yyyy}-%i.log.gz">
+    	<PatternLayout pattern="%d{yyyy-MM-dd 'at' HH:mm:ss z} %-5level %class{36} %L %M - %msg%xEx%n"/>
+        <Policies>
+        	 <SizeBasedTriggeringPolicy size="500MB"/>
+        	 <TimeBasedTriggeringPolicy />
+        </Policies>
+    </RollingFile>
+    
+  </Appenders>
+  
+  <Loggers>
+  	<logger name="com.lakala.ipos.report" level="info" additivity="false">
+  		<appender-ref ref="infoLevelRollingFile" />
+  		<appender-ref ref="errorLevelRollingFile" level="error" />
+    </logger>   
+    <Root level="error">
+      <AppenderRef ref="Console"/>
+    </Root>
+  </Loggers>
+</Configuration>

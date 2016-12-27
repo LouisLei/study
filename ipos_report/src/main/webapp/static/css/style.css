@@ -1,0 +1,278 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    border: 0;
+}
+
+ul, li {
+    list-style-type: none;
+}
+
+a {
+    color: #00007F;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #bd0a01;
+    text-decoration: underline;
+}
+
+html, body {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+#container {
+    width: 100%;
+    height: 100%;
+    background-color: #0F0;
+}
+
+#header {
+    position: fixed;
+    height: 50px;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+}
+
+#content {
+    position: fixed;
+    width: 100%;
+    top: 50px;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #F00;
+}
+
+#left {
+    width: 300px;
+    height: 100%;
+    background-color: #1a6cb9;
+    float: left;
+}
+
+#right {
+    margin-left: 300px;
+    height: 100%;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+#chart-options {
+    margin: 0 auto;
+    margin-top: 46px;
+    width: 80%;
+    height: 42px;
+}
+
+#chart-main {
+    background-color: #fff;
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 80%;
+    height: 80%;
+}
+
+.title {
+    margin: auto 0;
+    margin-left: 50px;
+    font-size: 20px;
+    vertical-align: middle;
+    line-height: 50px;
+}
+
+.treebox {
+    width: 300px;
+    margin: 0 auto;
+    background-color: #1a6cb9;
+}
+
+.sidebar-menu {
+    overflow: hidden;
+}
+/*第一层*/
+.sidebar-menu li.level1>a {
+    display: block;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    padding-left: 50px;
+    border-bottom: 1px solid #333;
+    font-size: 16px;
+    position: relative;
+}
+
+.sidebar-menu li.level1 a:hover {
+    text-decoration: none;
+    background-color: #326ea5;
+}
+
+.sidebar-menu li.level1 a.current {
+    background: #0f4679;
+}
+
+/*============修饰图标*/
+.ico {
+    width: 20px;
+    height: 20px;
+    display: block;
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    background-repeat: no-repeat;
+    background-image: url(../img/ico1.png);
+}
+
+/*============小箭头*/
+.level1 i {
+    width: 20px;
+    height: 10px;
+    background-image: url('../img/arrow.png');
+    background-repeat: no-repeat;
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.level1 i.down {
+    background-position: 0 -10px;
+}
+
+.ico1 {
+    background-position: 0 0;
+}
+
+.ico2 {
+    background-position: 0 -20px;
+}
+
+.ico3 {
+    background-position: 0 -40px;
+}
+
+.ico4 {
+    background-position: 0 -60px;
+}
+
+.ico5 {
+    background-position: 0 -80px;
+}
+
+/*第二层*/
+.sidebar-menu li ul {
+    overflow: hidden;
+}
+
+.sidebar-menu li ul.level2 {
+    display: none;
+    background: #0f4679;
+}
+
+.sidebar-menu li ul.level2 li a {
+    display: block;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    text-indent: 60px;
+    /*border-bottom: 1px solid #ddd; */
+    font-size: 14px;
+}
+
+a.button {
+    display: inline-block;
+    /* float: left; */
+    position: relative;
+    height: 25px;
+    width: 80px;
+    margin: 0 10px 18px 0;
+    
+    text-decoration: none;
+    font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    line-height: 25px;
+    text-align: center;
+
+    -webkit-border-radius: 3px; 
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+a.button:before,
+a.button:after {
+    content: '';
+    position: absolute;
+    left: -1px;
+    height: 25px;
+    width: 80px;
+    bottom: -1px;
+
+    -webkit-border-radius: 3px; 
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+a.button:before { 
+    height: 23px;
+    bottom: -4px;
+    border-top: 0;
+
+    -webkit-border-radius: 0 0 3px 3px; 
+    -moz-border-radius: 0 0 3px 3px;
+    border-radius: 0 0 3px 3px;
+    
+    -webkit-box-shadow: 0 1px 1px 0px #bfbfbf;
+    -moz-box-shadow: 0 1px 1px 0px #bfbfbf;
+    box-shadow: 0 1px 1px 0px #bfbfbf;
+}
+
+a.button:active {
+    border: none;
+    bottom: -4px;
+    margin-bottom: 22px;
+    
+    -webkit-box-shadow: 0 1px 1px #fff;
+    -moz-box-shadow:  0 1px 1px #fff;
+    box-shadow:  1px 1px 0 #fff, inset 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+a.button:active:before,
+a.button:active:after {
+    border: none;   
+    
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+a.gray,
+a.gray:hover,
+a.gray:visited {
+    color: #555;
+    border-bottom: 4px solid #b2b1b1;
+    text-shadow: 0px 1px 0px #fafafa;
+    
+    background: #eee;
+    background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#e2e2e2));
+    background: -moz-linear-gradient(top,  #eee,  #e2e2e2);
+    
+    box-shadow: inset 1px 1px 0 #f5f5f5;
+}
+
+.gray:before,
+.gray:after {
+    border: 1px solid #cbcbcb;
+    border-bottom: 1px solid #a5a5a5;
+}
+
+.gray:hover {
+    background: #e2e2e2;
+    background: -webkit-gradient(linear, left top, left bottom, from(#e2e2e2), to(#eee));
+    background: -moz-linear-gradient(top,  #e2e2e2,  #eee);
+}

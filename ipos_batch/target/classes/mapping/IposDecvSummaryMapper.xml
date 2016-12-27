@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lakala.ipos.batch.dao.IposDecvInfoSummaryMapper">
+	<resultMap id="BaseResultMap" type="com.lakala.ipos.batch.domain.IposDecvSummary">
+		<id column="ID" property="id" jdbcType="INTEGER" />
+		<result column="SN" property="sn" jdbcType="VARCHAR" />
+		<result column="PACKAGE_NAME" property="packageName" jdbcType="VARCHAR" />
+		<result column="VERSION_CODE" property="versionCode" jdbcType="VARCHAR" />
+		<result column="VERSION_NAME" property="versionName" jdbcType="VARCHAR" />
+	</resultMap>
+	<insert id="insertByBatch" parameterType="java.util.List">
+		INSERT INTO iposdata.ipos_devinfo_data_summary
+		(ID,SN, PACKAGE_NAME,VERSION_CODE, VERSION_NAME) VALUES
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.id},#{item.sn},#{item.packageName},#{item.versionCode},#{item.versionName})
+		</foreach>
+	</insert>
+</mapper>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lakala.ipos.report.dao.IposDevinfoDataSummaryMapper">
+	<resultMap id="BaseResultMap" type="com.lakala.ipos.report.domain.IposDevinfoDataSummary">
+		<result column="version_name" property="name" jdbcType="VARCHAR" />
+		<result column="count(1)" property="value" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, sn, package_name, version_code, version_name
+	</sql>
+	<select id="selectByPackageName" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select version_name,count(1)
+		from ipos_devinfo_data_summary
+		where package_name = #{package_name,jdbcType=VARCHAR} group by version_name
+	</select>
+
+	<select id="selectAll" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from ipos_devinfo_data_summary
+	</select>
+
+</mapper>
