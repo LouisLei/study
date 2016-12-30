@@ -1,0 +1,4 @@
+com\lakala\ipos\report\spring_batch\domain\IposDevinfoDataSummary.class
+com\lakala\ipos\report\spring_batch\processor\ReadDataFromDbProcessor.class
+com\lakala\ipos\report\spring_batch\mapper\IposDevinfoRowMapper.class
+com\lakala\ipos\report\spring_batch\listener\ReadFromDbJobListener.class
